@@ -1,0 +1,28 @@
+---
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
+# Analysis of the cars data set in R
+
+## by Fiseha Tadesse
+
+**part1**
+```{r}
+data (cars)
+str (cars)
+summary (cars)
+plot (cars)
+```
+
+***part2***
+```{r}
+hist(cars$speed)
+boxplot(cars$speed)
+```
+
+The mean speed of cars was `r mean(cars$speed)`.
+
+#The end
+
