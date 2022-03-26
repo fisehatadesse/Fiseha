@@ -1,0 +1,1138 @@
+Genstat 64-bit Release 18.1 ( PC/Windows 8) 15 March 2015 11:15:22
+Copyright 2015, VSN International Ltd.  
+Registered to: Plant Research International
+ 
+ 	________________________________________
+ 
+ 	Genstat Eighteenth Edition
+ 	Genstat Procedure Library Release PL26.1
+ 	________________________________________
+ 
+   1  SET [WORKINGDIRECTORY='C:/Users/DELL/Documents']
+   2  "Data taken from file: 'F:/survey fish.xlsx'"
+   3  DELETE [REDEFINE=yes] _stitle_: TEXT _stitle_
+   4  READ [PRINT=*; SETNVALUES=yes] _stitle_
+   8  PRINT [IPRINT=*] _stitle_; JUST=left
+ 
+Data imported from Excel file: F:\survey fish.xlsx
+ on: 15-Mar-2015 11:29:17
+ taken from sheet "survey sl&wv fish", cells A1:S61
+ 
+   9  DELETE [REDEFINE=yes] C1,C2,C3,C4,C5,C6,C7,C8,C9,C10
+  10  UNITS [NVALUES=*]
+  11  FACTOR [MODIFY=no; NVALUES=61; LEVELS=4; LABELS=!t('koka','location',\
+  12  'wonji','ziway'); REFERENCE=1] C1
+  13  READ C1; FREPRESENTATION=ordinal
+ 
+	 Identifier	 Values	 Missing	 Levels
+	C1	 61	 0	 4
+ 
+  16  FACTOR [MODIFY=no; NVALUES=61; LEVELS=11; LABELS=!t('q1','q10','q2','q3',\
+  17  'q4','q5','q6','q7','q8','q9','quadrat'); REFERENCE=1] C2
+  18  READ C2; FREPRESENTATION=ordinal
+ 
+	 Identifier	 Values	 Missing	 Levels
+	C2	 61	 0	 11
+ 
+  21  FACTOR [MODIFY=no; NVALUES=61; LEVELS=3; LABELS=!t('dry','season','wet')\
+  22  ; REFERENCE=1] C3
+  23  READ C3; FREPRESENTATION=ordinal
+ 
+	 Identifier	 Values	 Missing	 Levels
+	C3	 61	 0	 3
+ 
+  26  TEXT [NVALUES=61] C4
+  27  READ C4
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	C4	 	 	 	 61	 0	 
+ 
+  33  TEXT [NVALUES=61] C5
+  34  READ C5
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	C5	 	 	 	 61	 0	 
+ 
+  39  TEXT [NVALUES=61] C6
+  40  READ C6
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	C6	 	 	 	 61	 0	 
+ 
+  45  TEXT [NVALUES=61] C7
+  46  READ C7
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	C7	 	 	 	 61	 0	 
+ 
+  51  TEXT [NVALUES=61] C8
+  52  READ C8
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	C8	 	 	 	 61	 0	 
+ 
+  58  TEXT [NVALUES=61] C9
+  59  READ C9
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	C9	 	 	 	 61	 0	 
+ 
+  65  VARIATE [NVALUES=61] C10; DECIMALS=0
+  66  READ C10
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	C10	 0.6667	 0.6667	 0.6667	 61	 60	 
+ 
+  69
+  70  %PostMessage 1129; 0; 100001 "Sheet Update Completed"
+  71  "Data taken from file: 'F:/survey fish.xlsx'"
+  72  DELETE [REDEFINE=yes] _stitle_: TEXT _stitle_
+  73  READ [PRINT=*; SETNVALUES=yes] _stitle_
+  77  PRINT [IPRINT=*] _stitle_; JUST=left
+ 
+Data imported from Excel file: F:\survey fish.xlsx
+ on: 15-Mar-2015 11:29:17
+ taken from sheet "survey sl&wv fish", cells A1:S61
+ 
+  78  DELETE [REDEFINE=yes] C1,C2,C3
+  79  UNITS [NVALUES=*]
+  80  FACTOR [MODIFY=no; NVALUES=61; LEVELS=!(1,3,4); LABELS=!t('koka','wonji',\
+  81  'ziway'); REFERENCE=1] C1
+  82  READ C1; FREPRESENTATION=ordinal
+ 
+	 Identifier	 Values	 Missing	 Levels
+	C1	 61	 1	 3
+ 
+  85  FACTOR [MODIFY=no; NVALUES=61; LEVELS=!(1,2,3,4,5,6,7,8,9,10); LABELS=!t(\
+  86  'q1','q10','q2','q3','q4','q5','q6','q7','q8','q9'); REFERENCE=1] C2
+  87  READ C2; FREPRESENTATION=ordinal
+ 
+	 Identifier	 Values	 Missing	 Levels
+	C2	 61	 1	 10
+ 
+  90  FACTOR [MODIFY=no; NVALUES=61; LEVELS=!(1,3); LABELS=!t('dry','wet')\
+  91  ; REFERENCE=1] C3
+  92  READ C3; FREPRESENTATION=ordinal
+ 
+	 Identifier	 Values	 Missing	 Levels
+	C3	 61	 1	 2
+ 
+  95  TEXT [NVALUES=61] C4
+  96  READ C4
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	C4	 	 	 	 61	 1	 
+ 
+ 102  TEXT [NVALUES=61] C5
+ 103  READ C5
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	C5	 	 	 	 61	 1	 
+ 
+ 108  TEXT [NVALUES=61] C6
+ 109  READ C6
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	C6	 	 	 	 61	 1	 
+ 
+ 114  TEXT [NVALUES=61] C7
+ 115  READ C7
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	C7	 	 	 	 61	 1	 
+ 
+ 120  TEXT [NVALUES=61] C8
+ 121  READ C8
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	C8	 	 	 	 61	 1	 
+ 
+ 127  TEXT [NVALUES=61] C9
+ 128  READ C9
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	C9	 	 	 	 61	 1	 
+ 
+ 134  READ C10$[1]
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	C10$[1]	 *	 *	 *	 1	 1	 
+ 
+ 136
+ 137  "Data taken from file: 'F:/survey fish.xlsx'"
+ 138  DELETE [REDEFINE=yes] _stitle_: TEXT _stitle_
+ 139  READ [PRINT=*; SETNVALUES=yes] _stitle_
+ 143  PRINT [IPRINT=*] _stitle_; JUST=left
+ 
+Data imported from Excel file: F:\survey fish.xlsx
+ on: 15-Mar-2015 11:34:39
+ taken from sheet "survey sl&wv fish", cells A2:S61
+ 
+ 144  DELETE [REDEFINE=yes] location,quadrat,season,plant_m2,SL,NB,NE,inf%,kg_m2
+ 145  UNITS [NVALUES=*]
+ 146  FACTOR [MODIFY=no; NVALUES=60; LEVELS=3; LABELS=!t('koka','wonji','ziway')\
+ 147  ; REFERENCE=1] location
+ 148  READ location; FREPRESENTATION=ordinal
+ 
+	 Identifier	 Values	 Missing	 Levels
+	location	 60	 0	 3
+ 
+ 151  FACTOR [MODIFY=no; NVALUES=60; LEVELS=10; LABELS=!t('q1','q10','q2','q3',\
+ 152  'q4','q5','q6','q7','q8','q9'); REFERENCE=1] quadrat
+ 153  READ quadrat; FREPRESENTATION=ordinal
+ 
+	 Identifier	 Values	 Missing	 Levels
+	quadrat	 60	 0	 10
+ 
+ 156  FACTOR [MODIFY=no; NVALUES=60; LEVELS=2; LABELS=!t('dry','wet')\
+ 157  ; REFERENCE=1] season
+ 158  READ season; FREPRESENTATION=ordinal
+ 
+	 Identifier	 Values	 Missing	 Levels
+	season	 60	 0	 2
+ 
+ 161  VARIATE [NVALUES=60] plant_m2
+ 162  READ plant_m2
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	plant_m2	 91.00	 199.7	 299.0	 60	 0	 
+ 
+ 167  VARIATE [NVALUES=60] SL
+ 168  READ SL
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	SL	 0.0000	 2.833	 11.00	 60	 0	 
+ 
+ 171  VARIATE [NVALUES=60] NB
+ 172  READ NB
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	NB	 0.0000	 3.617	 17.00	 60	 0	    Skew
+ 
+ 175  VARIATE [NVALUES=60] NE
+ 176  READ NE
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	NE	 0.0000	 0.8000	 3.000	 60	 0	 
+ 
+ 179  VARIATE [NVALUES=60] inf%
+ 180  READ inf%
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	inf%	 5.000	 12.29	 24.50	 60	 0	 
+ 
+ 185  VARIATE [NVALUES=60] kg_m2
+ 186  READ kg_m2
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	kg_m2	 6.000	 20.11	 34.50	 60	 0	 
+ 
+ 190
+ 191  %PostMessage 1129; 0; 100001 "Sheet Update Completed"
+ 192  CALCULATE Sl_trans=LOG10(SL)
+Warning 1, code CA 7, statement 1 on line 192
+ 
+Command: CALCULATE Sl_trans=LOG10(SL)
+Invalid value for argument of function.
+The first argument of the LOG10 function in unit  20 has the value 0.0000  
+ 
+ 193  FSPREADSHEET [SHEET=100001; METHOD=replace; NOUNITS=yes] Sl_trans
+ 194  UNITS [NVALUES=*]
+ 195  DELETE [REDEFINE=yes] _index_
+ 196  READ [PRINT=*; SETNVALUES=y] _index_
+ 198  READ Sl_trans$[_index_]
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	Sl_trans$[_index_]	 0.0000	 0.0000	 0.0000	 15	 0	 
+ 
+ 200
+ 201  %PostMessage 1129; 0; 100001 "Sheet Update Completed"
+ 202  CALCULATE NB_trans=LOG10(NB)
+Warning 2, code CA 7, statement 1 on line 202
+ 
+Command: CALCULATE NB_trans=LOG10(NB)
+Invalid value for argument of function.
+The first argument of the LOG10 function in unit  4 has the value 0.0000  
+ 
+ 203  FSPREADSHEET [SHEET=100001; METHOD=replace; NOUNITS=yes] NB_trans
+ 204  UNITS [NVALUES=*]
+ 205  DELETE [REDEFINE=yes] _index_
+ 206  READ [PRINT=*; SETNVALUES=y] _index_
+ 208  READ NB_trans$[_index_]
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	NB_trans$[_index_]	 0.0000	 0.0000	 0.0000	 13	 0	 
+ 
+ 210
+ 211  %PostMessage 1129; 0; 100001 "Sheet Update Completed"
+ 212  "Data taken from file: 'F:/survey fish.xlsx'"
+ 213  DELETE [REDEFINE=yes] _stitle_: TEXT _stitle_
+ 214  READ [PRINT=*; SETNVALUES=yes] _stitle_
+ 218  PRINT [IPRINT=*] _stitle_; JUST=left
+ 
+Data imported from Excel file: F:\survey fish.xlsx
+ on: 15-Mar-2015 11:34:39
+ taken from sheet "survey sl&wv fish", cells A2:S61
+ 
+ 219  DELETE [REDEFINE=yes] LI
+ 220  UNITS [NVALUES=*]
+ 221  VARIATE [NVALUES=60] LI
+ 222  READ LI
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	LI	 5.000	 12.29	 24.50	 60	 0	 
+ 
+ 227
+ 228  %PostMessage 1129; 0; 100001 "Sheet Update Completed"
+ 229  "Data taken from file: 'F:/survey fish.xlsx'"
+ 230  DELETE [REDEFINE=yes] _stitle_: TEXT _stitle_
+ 231  READ [PRINT=*; SETNVALUES=yes] _stitle_
+ 235  PRINT [IPRINT=*] _stitle_; JUST=left
+ 
+Data imported from Excel file: F:\survey fish.xlsx
+ on: 15-Mar-2015 11:34:39
+ taken from sheet "survey sl&wv fish", cells A2:S61
+ 
+ 236  DELETE [REDEFINE=yes] WT
+ 237  UNITS [NVALUES=*]
+ 238  VARIATE [NVALUES=60] WT
+ 239  READ WT
+ 
+	 Identifier	 Minimum	 Mean	 Maximum	 Values	 Missing	 
+	WT	 6.000	 20.11	 34.50	 60	 0	 
+ 
+ 243
+ 244  %PostMessage 1129; 0; 100001 "Sheet Update Completed"
+ 245  "General Analysis of Variance"
+ 246  BLOCK "No Blocking"
+ 247  TREATMENTS location*season
+ 248  COVARIATE "No Covariate"
+ 249  ANOVA [PRINT=aovtable,information,means,%cv; FACT=32; CONTRASTS=7; PCONTRASTS=7; FPROB=yes;\
+ 250   PSE=diff,lsd,means; LSDLEVEL=5] Sl_trans
+Analysis of variance
+ 
+Variate: Sl_trans
+ 
+Source of variation	d.f.	s.s.	m.s.	v.r.	F pr.
+location	2	 2.01997	 1.00999	 14.23	<.001
+season	1	 1.87382	 1.87382	 26.40	<.001
+location.season	2	 0.74364	 0.37182	 5.24	 0.008
+Residual	54	 3.83317	 0.07098	 	 
+Total	59	 8.47060	 	 	 
+ 
+ 
+Message: the following units have large residuals.
+ 
+*units* 39	   0.617	 s.e.   0.253
+*units* 40	   0.727	 s.e.   0.253
+ 
+ 
+Tables of means
+ 
+Variate: Sl_trans
+ 
+Grand mean  0.316 
+ 
+	location	 koka	 wonji	 ziway
+		 0.364	 0.513	 0.072
+ 
+	season	 dry	 wet
+		 0.493	 0.139
+ 
+	location	season	 dry	 wet
+	koka		 0.584	 0.143
+	wonji		 0.799	 0.228
+	ziway		 0.095	 0.048
+ 
+ 
+Standard errors of means
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+e.s.e.	 0.0596	 0.0486	 0.0843	 
+ 
+ 
+ 
+Standard errors of differences of means
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+s.e.d.	 0.0843	 0.0688	 0.1192	 
+ 
+ 
+ 
+Least significant differences of means (5% level)
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+l.s.d.	 0.1689	 0.1379	 0.2389	 
+ 
+ 
+ 
+Stratum standard errors and coefficients of variation
+ 
+Variate: Sl_trans
+ 
+d.f.	s.e.	cv%
+ 54	 0.2664	 84.3
+ 
+ 251  ADISPLAY [PRINT=aovtable,%cv; FPROB=yes]
+Analysis of variance
+ 
+Variate: Sl_trans
+ 
+Source of variation	d.f.	s.s.	m.s.	v.r.	F pr.
+location	2	 2.01997	 1.00999	 14.23	<.001
+season	1	 1.87382	 1.87382	 26.40	<.001
+location.season	2	 0.74364	 0.37182	 5.24	 0.008
+Residual	54	 3.83317	 0.07098	 	 
+Total	59	 8.47060	 	 	 
+ 
+ 
+Stratum standard errors and coefficients of variation
+ 
+Variate: Sl_trans
+ 
+d.f.	s.e.	cv%
+ 54	 0.2664	 84.3
+ 
+ 252  ADISPLAY [PRINT=*; FPROB=yes]
+ 253  DELETE [REDEFINE=yes] _mean, _rep, _var, _resid, _rdf, _scode
+ 254  SCALAR _scode; VALUE=0
+ 255  AKEEP [FACTORIAL=9] location; MEAN=_mean; REP=_rep; VARIANCE=_var; RTERM=_resid; STATUS=_scode
+ 256  IF _scode .in. !(1,2)
+ 257    AKEEP [FACTORIAL=9] #_resid; DF=_rdf
+ 258    AMCOMPARISON [PRINT=letter; METHOD=snk; DIRECTION=descending; PROB=0.05; FACTORIAL=9]\
+ 259   location
+ 
+Student-Newman-Keuls test
+ 
+ 
+location
+ 
+ 
+		Mean	 
+	wonji	 0.5134	 a
+	koka	 0.3637	 a
+	ziway	 0.0716	 b
+ 
+ 260  ELSE
+ 261    CAPTION !t('Multiple comparisons are available for tests other than',\
+ 262    'Fisher''s LSD, Bonferroni & Sidak tests, only if all components of the term',\
+ 263    'are estimated with equal efficiency and in the same stratum.')
+ 264  ENDIF
+ 265  ADISPLAY [PRINT=*; FPROB=yes]
+ 266  DELETE [REDEFINE=yes] _mean, _rep, _var, _resid, _rdf, _scode
+ 267  SCALAR _scode; VALUE=0
+ 268  AKEEP [FACTORIAL=9] location.season; MEAN=_mean; REP=_rep; VARIANCE=_var; RTERM=_resid;\
+ 269   STATUS=_scode
+ 270  IF _scode .in. !(1,2)
+ 271    AKEEP [FACTORIAL=9] #_resid; DF=_rdf
+ 272    AMCOMPARISON [PRINT=letter; METHOD=snk; DIRECTION=descending; PROB=0.05; FACTORIAL=9]\
+ 273   location.season
+ 
+Student-Newman-Keuls test
+ 
+ 
+location.season
+ 
+ 
+		Mean	 
+	wonji dry	 0.7992	 a
+	koka dry	 0.5842	 a
+	wonji wet	 0.2276	 b
+	koka wet	 0.1431	 b
+	ziway dry	 0.0954	 b
+	ziway wet	 0.0477	 b
+ 
+ 274  ELSE
+ 275    CAPTION !t('Multiple comparisons are available for tests other than',\
+ 276    'Fisher''s LSD, Bonferroni & Sidak tests, only if all components of the term',\
+ 277    'are estimated with equal efficiency and in the same stratum.')
+ 278  ENDIF
+ 279  "General Analysis of Variance"
+ 280  BLOCK "No Blocking"
+ 281  TREATMENTS location*season
+ 282  COVARIATE "No Covariate"
+ 283  ANOVA [PRINT=aovtable,information,means,%cv; FACT=32; CONTRASTS=7; PCONTRASTS=7; FPROB=yes;\
+ 284   PSE=diff,lsd,means; LSDLEVEL=5] NB_trans
+Analysis of variance
+ 
+Variate: NB_trans
+ 
+Source of variation	d.f.	s.s.	m.s.	v.r.	F pr.
+location	2	 5.73705	 2.86853	 53.13	<.001
+season	1	 0.32691	 0.32691	 6.05	 0.017
+location.season	2	 0.05697	 0.02848	 0.53	 0.593
+Residual	54	 2.91564	 0.05399	 	 
+Total	59	 9.03657	 	 	 
+ 
+ 
+Tables of means
+ 
+Variate: NB_trans
+ 
+Grand mean  0.396 
+ 
+	location	 koka	 wonji	 ziway
+		 0.830	 0.132	 0.227
+ 
+	season	 dry	 wet
+		 0.322	 0.470
+ 
+	location	season	 dry	 wet
+	koka		 0.799	 0.861
+	wonji		 0.030	 0.233
+	ziway		 0.138	 0.316
+ 
+ 
+Standard errors of means
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+e.s.e.	 0.0520	 0.0424	 0.0735	 
+ 
+ 
+ 
+Standard errors of differences of means
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+s.e.d.	 0.0735	 0.0600	 0.1039	 
+ 
+ 
+ 
+Least significant differences of means (5% level)
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+l.s.d.	 0.1473	 0.1203	 0.2083	 
+ 
+ 
+ 
+Stratum standard errors and coefficients of variation
+ 
+Variate: NB_trans
+ 
+d.f.	s.e.	cv%
+ 54	 0.2324	 58.6
+ 
+ 285  DELETE [REDEFINE=yes] _mean, _rep, _var, _resid, _rdf, _scode
+ 286  SCALAR _scode; VALUE=0
+ 287  AKEEP [FACTORIAL=9] location.season; MEAN=_mean; REP=_rep; VARIANCE=_var; RTERM=_resid;\
+ 288   STATUS=_scode
+ 289  IF _scode .in. !(1,2)
+ 290    AKEEP [FACTORIAL=9] #_resid; DF=_rdf
+ 291    AMCOMPARISON [PRINT=letter; METHOD=snk; DIRECTION=descending; PROB=0.05; FACTORIAL=9]\
+ 292   location.season
+ 
+Student-Newman-Keuls test
+ 
+ 
+location.season
+ 
+ 
+		Mean	 
+	koka wet	 0.8610	 a
+	koka dry	 0.7992	 a
+	ziway wet	 0.3158	 b
+	wonji wet	 0.2334	 bc
+	ziway dry	 0.1380	 bc
+	wonji dry	 0.0301	 c
+ 
+ 293  ELSE
+ 294    CAPTION !t('Multiple comparisons are available for tests other than',\
+ 295    'Fisher''s LSD, Bonferroni & Sidak tests, only if all components of the term',\
+ 296    'are estimated with equal efficiency and in the same stratum.')
+ 297  ENDIF
+ 298  ADISPLAY [PRINT=*; FPROB=yes]
+ 299  DELETE [REDEFINE=yes] _mean, _rep, _var, _resid, _rdf, _scode
+ 300  SCALAR _scode; VALUE=0
+ 301  AKEEP [FACTORIAL=9] location; MEAN=_mean; REP=_rep; VARIANCE=_var; RTERM=_resid; STATUS=_scode
+ 302  IF _scode .in. !(1,2)
+ 303    AKEEP [FACTORIAL=9] #_resid; DF=_rdf
+ 304    AMCOMPARISON [PRINT=letter; METHOD=snk; DIRECTION=descending; PROB=0.05; FACTORIAL=9]\
+ 305   location
+ 
+Student-Newman-Keuls test
+ 
+ 
+location
+ 
+ 
+		Mean	 
+	koka	 0.8301	 a
+	ziway	 0.2269	 b
+	wonji	 0.1318	 b
+ 
+ 306  ELSE
+ 307    CAPTION !t('Multiple comparisons are available for tests other than',\
+ 308    'Fisher''s LSD, Bonferroni & Sidak tests, only if all components of the term',\
+ 309    'are estimated with equal efficiency and in the same stratum.')
+ 310  ENDIF
+ 311  "General Analysis of Variance"
+ 312  BLOCK "No Blocking"
+ 313  TREATMENTS location*season
+ 314  COVARIATE "No Covariate"
+ 315  ANOVA [PRINT=aovtable,information,means,%cv; FACT=32; CONTRASTS=7; PCONTRASTS=7; FPROB=yes;\
+ 316   PSE=diff,lsd,means; LSDLEVEL=5] WT
+Analysis of variance
+ 
+Variate: WT
+ 
+Source of variation	d.f.	s.s.	m.s.	v.r.	F pr.
+location	2	 140.06	 70.03	 2.88	 0.065
+season	1	 1712.00	 1712.00	 70.47	<.001
+location.season	2	 64.11	 32.05	 1.32	 0.276
+Residual	54	 1311.88	 24.29	 	 
+Total	59	 3228.05	 	 	 
+ 
+ 
+Tables of means
+ 
+Variate: WT
+ 
+Grand mean  20.11 
+ 
+	location	 koka	 wonji	 ziway
+		 19.70	 22.15	 18.48
+ 
+	season	 dry	 wet
+		 14.77	 25.45
+ 
+	location	season	 dry	 wet
+	koka		 15.00	 24.40
+	wonji		 15.35	 28.95
+	ziway		 13.95	 23.00
+ 
+ 
+Standard errors of means
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+e.s.e.	 1.102	 0.900	 1.559	 
+ 
+ 
+ 
+Standard errors of differences of means
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+s.e.d.	 1.559	 1.273	 2.204	 
+ 
+ 
+ 
+Least significant differences of means (5% level)
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+l.s.d.	 3.125	 2.551	 4.419	 
+ 
+ 
+ 
+Stratum standard errors and coefficients of variation
+ 
+Variate: WT
+ 
+d.f.	s.e.	cv%
+ 54	 4.929	 24.5
+ 
+ 317  DELETE [REDEFINE=yes] _mean, _rep, _var, _resid, _rdf, _scode
+ 318  SCALAR _scode; VALUE=0
+ 319  AKEEP [FACTORIAL=9] location.season; MEAN=_mean; REP=_rep; VARIANCE=_var; RTERM=_resid;\
+ 320   STATUS=_scode
+ 321  IF _scode .in. !(1,2)
+ 322    AKEEP [FACTORIAL=9] #_resid; DF=_rdf
+ 323    AMCOMPARISON [PRINT=letter; METHOD=snk; DIRECTION=descending; PROB=0.05; FACTORIAL=9]\
+ 324   location.season
+ 
+Student-Newman-Keuls test
+ 
+ 
+location.season
+ 
+ 
+		Mean	 
+	wonji wet	 28.95	 a
+	koka wet	 24.40	 b
+	ziway wet	 23.00	 b
+	wonji dry	 15.35	 c
+	koka dry	 15.00	 c
+	ziway dry	 13.95	 c
+ 
+ 325  ELSE
+ 326    CAPTION !t('Multiple comparisons are available for tests other than',\
+ 327    'Fisher''s LSD, Bonferroni & Sidak tests, only if all components of the term',\
+ 328    'are estimated with equal efficiency and in the same stratum.')
+ 329  ENDIF
+ 330  "General Analysis of Variance"
+ 331  BLOCK "No Blocking"
+ 332  TREATMENTS location*season
+ 333  COVARIATE "No Covariate"
+ 334  ANOVA [PRINT=aovtable,information,means,%cv; FACT=32; CONTRASTS=7; PCONTRASTS=7; FPROB=yes;\
+ 335   PSE=diff,lsd,means; LSDLEVEL=5] NE
+Analysis of variance
+ 
+Variate: NE
+ 
+Source of variation	d.f.	s.s.	m.s.	v.r.	F pr.
+location	2	 4.8000	 2.4000	 3.86	 0.027
+season	1	 1.0667	 1.0667	 1.71	 0.196
+location.season	2	 2.1333	 1.0667	 1.71	 0.190
+Residual	54	 33.6000	 0.6222	 	 
+Total	59	 41.6000	 	 	 
+ 
+ 
+Message: the following units have large residuals.
+ 
+*units* 45	   1.80	 s.e.   0.75
+ 
+ 
+Tables of means
+ 
+Variate: NE
+ 
+Grand mean  0.80 
+ 
+	location	 koka	 wonji	 ziway
+		 1.20	 0.60	 0.60
+ 
+	season	 dry	 wet
+		 0.67	 0.93
+ 
+	location	season	 dry	 wet
+	koka		 1.20	 1.20
+	wonji		 0.20	 1.00
+	ziway		 0.60	 0.60
+ 
+ 
+Standard errors of means
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+e.s.e.	 0.176	 0.144	 0.249	 
+ 
+ 
+ 
+Standard errors of differences of means
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+s.e.d.	 0.249	 0.204	 0.353	 
+ 
+ 
+ 
+Least significant differences of means (5% level)
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+l.s.d.	 0.500	 0.408	 0.707	 
+ 
+ 
+ 
+Stratum standard errors and coefficients of variation
+ 
+Variate: NE
+ 
+d.f.	s.e.	cv%
+ 54	 0.789	 98.6
+ 
+ 336  DELETE [REDEFINE=yes] _mean, _rep, _var, _resid, _rdf, _scode
+ 337  SCALAR _scode; VALUE=0
+ 338  AKEEP [FACTORIAL=9] location.season; MEAN=_mean; REP=_rep; VARIANCE=_var; RTERM=_resid;\
+ 339   STATUS=_scode
+ 340  IF _scode .in. !(1,2)
+ 341    AKEEP [FACTORIAL=9] #_resid; DF=_rdf
+ 342    AMCOMPARISON [PRINT=letter; METHOD=snk; DIRECTION=descending; PROB=0.05; FACTORIAL=9]\
+ 343   location.season
+ 
+Student-Newman-Keuls test
+ 
+ 
+location.season
+ 
+ 
+		Mean	 
+	koka dry	 1.2000	 a
+	koka wet	 1.2000	 ab
+	wonji wet	 1.0000	 abc
+	ziway dry	 0.6000	 abc
+	ziway wet	 0.6000	 abc
+	wonji dry	 0.2000	 ac
+ 
+ 344  ELSE
+ 345    CAPTION !t('Multiple comparisons are available for tests other than',\
+ 346    'Fisher''s LSD, Bonferroni & Sidak tests, only if all components of the term',\
+ 347    'are estimated with equal efficiency and in the same stratum.')
+ 348  ENDIF
+ 349  "General Analysis of Variance"
+ 350  BLOCK "No Blocking"
+ 351  TREATMENTS location*season
+ 352  COVARIATE "No Covariate"
+ 353  ANOVA [PRINT=aovtable,information,means,%cv; FACT=32; CONTRASTS=7; PCONTRASTS=7; FPROB=yes;\
+ 354   PSE=diff,lsd,means; LSDLEVEL=5] plant_m2
+Analysis of variance
+ 
+Variate: plant_m2
+ 
+Source of variation	d.f.	s.s.	m.s.	v.r.	F pr.
+location	2	 2849.	 1424.	 1.04	 0.359
+season	1	 89089.	 89089.	 65.29	<.001
+location.season	2	 340.	 170.	 0.12	 0.883
+Residual	54	 73680.	 1364.	 	 
+Total	59	 165957.	 	 	 
+ 
+ 
+Tables of means
+ 
+Variate: plant_m2
+ 
+Grand mean  199.7 
+ 
+	location	 koka	 wonji	 ziway
+		 200.6	 207.6	 190.8
+ 
+	season	 dry	 wet
+		 161.1	 238.2
+ 
+	location	season	 dry	 wet
+	koka		 163.0	 238.2
+	wonji		 165.8	 249.4
+	ziway		 154.6	 227.0
+ 
+ 
+Standard errors of means
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+e.s.e.	 8.26	 6.74	 11.68	 
+ 
+ 
+ 
+Standard errors of differences of means
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+s.e.d.	 11.68	 9.54	 16.52	 
+ 
+ 
+ 
+Least significant differences of means (5% level)
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+l.s.d.	 23.42	 19.12	 33.12	 
+ 
+ 
+ 
+Stratum standard errors and coefficients of variation
+ 
+Variate: plant_m2
+ 
+d.f.	s.e.	cv%
+ 54	 36.94	 18.5
+ 
+ 355  DELETE [REDEFINE=yes] _mean, _rep, _var, _resid, _rdf, _scode
+ 356  SCALAR _scode; VALUE=0
+ 357  AKEEP [FACTORIAL=9] location.season; MEAN=_mean; REP=_rep; VARIANCE=_var; RTERM=_resid;\
+ 358   STATUS=_scode
+ 359  IF _scode .in. !(1,2)
+ 360    AKEEP [FACTORIAL=9] #_resid; DF=_rdf
+ 361    AMCOMPARISON [PRINT=letter; METHOD=snk; DIRECTION=descending; PROB=0.05; FACTORIAL=9]\
+ 362   location.season
+ 
+Student-Newman-Keuls test
+ 
+ 
+location.season
+ 
+ 
+		Mean	 
+	wonji wet	 249.4	 a
+	koka wet	 238.2	 a
+	ziway wet	 227.0	 a
+	wonji dry	 165.8	 b
+	koka dry	 163.0	 b
+	ziway dry	 154.6	 b
+ 
+ 363  ELSE
+ 364    CAPTION !t('Multiple comparisons are available for tests other than',\
+ 365    'Fisher''s LSD, Bonferroni & Sidak tests, only if all components of the term',\
+ 366    'are estimated with equal efficiency and in the same stratum.')
+ 367  ENDIF
+ 368  "General Analysis of Variance"
+ 369  BLOCK "No Blocking"
+ 370  TREATMENTS location*season
+ 371  COVARIATE "No Covariate"
+ 372  ANOVA [PRINT=aovtable,information,means,%cv; FACT=32; CONTRASTS=7; PCONTRASTS=7; FPROB=yes;\
+ 373   PSE=diff,lsd,means; LSDLEVEL=5] WT
+Analysis of variance
+ 
+Variate: WT
+ 
+Source of variation	d.f.	s.s.	m.s.	v.r.	F pr.
+location	2	 140.06	 70.03	 2.88	 0.065
+season	1	 1712.00	 1712.00	 70.47	<.001
+location.season	2	 64.11	 32.05	 1.32	 0.276
+Residual	54	 1311.88	 24.29	 	 
+Total	59	 3228.05	 	 	 
+ 
+ 
+Tables of means
+ 
+Variate: WT
+ 
+Grand mean  20.11 
+ 
+	location	 koka	 wonji	 ziway
+		 19.70	 22.15	 18.48
+ 
+	season	 dry	 wet
+		 14.77	 25.45
+ 
+	location	season	 dry	 wet
+	koka		 15.00	 24.40
+	wonji		 15.35	 28.95
+	ziway		 13.95	 23.00
+ 
+ 
+Standard errors of means
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+e.s.e.	 1.102	 0.900	 1.559	 
+ 
+ 
+ 
+Standard errors of differences of means
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+s.e.d.	 1.559	 1.273	 2.204	 
+ 
+ 
+ 
+Least significant differences of means (5% level)
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+l.s.d.	 3.125	 2.551	 4.419	 
+ 
+ 
+ 
+Stratum standard errors and coefficients of variation
+ 
+Variate: WT
+ 
+d.f.	s.e.	cv%
+ 54	 4.929	 24.5
+ 
+ 374  DELETE [REDEFINE=yes] _mean, _rep, _var, _resid, _rdf, _scode
+ 375  SCALAR _scode; VALUE=0
+ 376  AKEEP [FACTORIAL=9] location.season; MEAN=_mean; REP=_rep; VARIANCE=_var; RTERM=_resid;\
+ 377   STATUS=_scode
+ 378  IF _scode > 0
+ 379    AKEEP [FACTORIAL=9] #_resid; DF=_rdf
+ 380    AMCOMPARISON [PRINT=letter; METHOD=fplsd; DIRECTION=descending; PROB=0.05; FACTORIAL=9;\
+ 381   STUDENTIZE=no] location.season
+ 
+Fisher's protected least significant difference test
+ 
+ 
+location.season
+ 
+Warning 3, code UF 2, statement 194 in procedure AMCOMPARISON
+ 
+Fisher's protected LSD is not calculated as variance ratio for location.season is not significant. 
+ 
+ 382  ELSE
+ 383    CAPTION !t('Multiple comparisons are not available, as some contrasts',\
+ 384    'in the term are aliased.')
+ 385  ENDIF
+ 386  ADISPLAY [PRINT=*; FPROB=yes]
+ 387  DELETE [REDEFINE=yes] _mean, _rep, _var, _resid, _rdf, _scode
+ 388  SCALAR _scode; VALUE=0
+ 389  AKEEP [FACTORIAL=9] location; MEAN=_mean; REP=_rep; VARIANCE=_var; RTERM=_resid; STATUS=_scode
+ 390  IF _scode .in. !(1,2)
+ 391    AKEEP [FACTORIAL=9] #_resid; DF=_rdf
+ 392    AMCOMPARISON [PRINT=letter; METHOD=snk; DIRECTION=descending; PROB=0.05; FACTORIAL=9]\
+ 393   location
+ 
+Student-Newman-Keuls test
+ 
+ 
+location
+ 
+ 
+		Mean	 
+	wonji	 22.15	 a
+	koka	 19.70	 a
+	ziway	 18.48	 a
+ 
+ 394  ELSE
+ 395    CAPTION !t('Multiple comparisons are available for tests other than',\
+ 396    'Fisher''s LSD, Bonferroni & Sidak tests, only if all components of the term',\
+ 397    'are estimated with equal efficiency and in the same stratum.')
+ 398  ENDIF
+ 399  ADISPLAY [PRINT=*; FPROB=yes]
+ 400  DELETE [REDEFINE=yes] _mean, _rep, _var, _resid, _rdf, _scode
+ 401  SCALAR _scode; VALUE=0
+ 402  AKEEP [FACTORIAL=9] location.season; MEAN=_mean; REP=_rep; VARIANCE=_var; RTERM=_resid;\
+ 403   STATUS=_scode
+ 404  IF _scode .in. !(1,2)
+ 405    AKEEP [FACTORIAL=9] #_resid; DF=_rdf
+ 406    AMCOMPARISON [PRINT=letter; METHOD=snk; DIRECTION=descending; PROB=0.05; FACTORIAL=9]\
+ 407   location.season
+ 
+Student-Newman-Keuls test
+ 
+ 
+location.season
+ 
+ 
+		Mean	 
+	wonji wet	 28.95	 a
+	koka wet	 24.40	 b
+	ziway wet	 23.00	 b
+	wonji dry	 15.35	 c
+	koka dry	 15.00	 c
+	ziway dry	 13.95	 c
+ 
+ 408  ELSE
+ 409    CAPTION !t('Multiple comparisons are available for tests other than',\
+ 410    'Fisher''s LSD, Bonferroni & Sidak tests, only if all components of the term',\
+ 411    'are estimated with equal efficiency and in the same stratum.')
+ 412  ENDIF
+ 413  "General Analysis of Variance"
+ 414  BLOCK "No Blocking"
+ 415  TREATMENTS location*season
+ 416  COVARIATE "No Covariate"
+ 417  ANOVA [PRINT=aovtable,information,means,%cv; FACT=32; CONTRASTS=7; PCONTRASTS=7; FPROB=yes;\
+ 418   PSE=diff,lsd,means; LSDLEVEL=5] WT
+Analysis of variance
+ 
+Variate: WT
+ 
+Source of variation	d.f.	s.s.	m.s.	v.r.	F pr.
+location	2	 140.06	 70.03	 2.88	 0.065
+season	1	 1712.00	 1712.00	 70.47	<.001
+location.season	2	 64.11	 32.05	 1.32	 0.276
+Residual	54	 1311.88	 24.29	 	 
+Total	59	 3228.05	 	 	 
+ 
+ 
+Tables of means
+ 
+Variate: WT
+ 
+Grand mean  20.11 
+ 
+	location	 koka	 wonji	 ziway
+		 19.70	 22.15	 18.48
+ 
+	season	 dry	 wet
+		 14.77	 25.45
+ 
+	location	season	 dry	 wet
+	koka		 15.00	 24.40
+	wonji		 15.35	 28.95
+	ziway		 13.95	 23.00
+ 
+ 
+Standard errors of means
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+e.s.e.	 1.102	 0.900	 1.559	 
+ 
+ 
+ 
+Standard errors of differences of means
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+s.e.d.	 1.559	 1.273	 2.204	 
+ 
+ 
+ 
+Least significant differences of means (5% level)
+ 
+Table	location	season	location	 
+			season	 
+rep.	 20	 30	 10	 
+d.f.	 54	 54	 54	 
+l.s.d.	 3.125	 2.551	 4.419	 
+ 
+ 
+ 
+Stratum standard errors and coefficients of variation
+ 
+Variate: WT
+ 
+d.f.	s.e.	cv%
+ 54	 4.929	 24.5
+ 
+ 419  DELETE [REDEFINE=yes] _mean, _rep, _var, _resid, _rdf, _scode
+ 420  SCALAR _scode; VALUE=0
+ 421  AKEEP [FACTORIAL=9] location; MEAN=_mean; REP=_rep; VARIANCE=_var; RTERM=_resid; STATUS=_scode
+ 422  IF _scode .in. !(1,2)
+ 423    AKEEP [FACTORIAL=9] #_resid; DF=_rdf
+ 424    AMCOMPARISON [PRINT=letter; METHOD=snk; DIRECTION=descending; PROB=0.05; FACTORIAL=9]\
+ 425   location
+ 
+Student-Newman-Keuls test
+ 
+ 
+location
+ 
+ 
+		Mean	 
+	wonji	 22.15	 a
+	koka	 19.70	 a
+	ziway	 18.48	 a
+ 
+ 426  ELSE
+ 427    CAPTION !t('Multiple comparisons are available for tests other than',\
+ 428    'Fisher''s LSD, Bonferroni & Sidak tests, only if all components of the term',\
+ 429    'are estimated with equal efficiency and in the same stratum.')
+ 430  ENDIF
