@@ -1,0 +1,218 @@
+---
+title: "Marker segregation, two-point recombination fraction calculation, and marker grouping"
+author: "Fiseha"
+date: '2022-04-08'
+output: html_document
+---
+
+```{r}
+maizez008 <- read.csv(file = "population_Z008.csv", header = TRUE, sep = ",")
+dim(maizez008)
+```
+
+
+```{r}
+maize_Z008 <- maizez008 [-c(1), -c(1:37)]
+dim(maize_Z008)
+```
+
+
+```{r}
+table(maize_Z008 [, c(1, 2)])
+```
+
+
+```{r}
+twopts.riself <- function(i, j, data) { 
+  n <- table(data[,c(i, j)]) # counts genotypic classes for two markers i and j
+  n.nr <- sum(n[c(1,4)]) # non-recombinants (n2 e n3)
+  n.r <- sum(n[2:3]) # recombinants (n1 e n4)
+  r.hat <- n.r/(n.nr+n.r) # BC recombination fraction estimator
+  log.Lik.H0 <- (n.nr+n.r)*log(0.5/2) # likelihood function for r=0.5
+  log.Lik.H1 <- (n.nr*log((1-r.hat)/2) + n.r*log(r.hat/2)) # likelihood function for r estimate
+  LRT <- -2*(log.Lik.H0 - log.Lik.H1) # likelihood ratio test
+  LOD <- LRT*0.2172 # transformation to LOD
+  p.valor <- pchisq(LRT, df=1, lower.tail=FALSE) # P value from a chi-square distribution with 1 degree of freedom
+  return(c(r.hat, LRT, LOD, p.valor))
+}
+```
+
+
+```{r}
+results <- array(NA, dim=c(ncol(maize_Z008), ncol(maize_Z008), 4))
+for(i in 1:ncol(maize_Z008)) {
+  for(j in i:ncol(maize_Z008)) {
+    results[i,j,] <- twopts.riself(i, j, data=maize_Z008)
+  }
+}
+```
+
+
+```{r}
+image(results[,,1], bty="n", col=rainbow(n = 500, start = 0, end = 0.65), main="Maize Z008 population: recombination fractions")
+```
+
+
+#  QTL 
+
+```{r}
+library(qtl)
+```
+
+```{r}
+Z008 <- read.cross(format="csv", file="population_Z008.csv", genotypes=c("0", "1", "2"), crosstype = "riself")
+```
+
+```{r}
+summary(Z008)
+```
+
+```{r}
+geno.image(Z008)
+```
+
+```{r}
+gt.Z008 <- geno.table(Z008) 
+gt.Z008
+```
+
+```{r}
+table(gt.Z008$P.value < 0.05)
+```
+
+```{r}
+table(gt.Z008$P.value < 0.05/totmar(Z008))
+```
+
+```{r}
+Z008 <- est.rf(Z008)
+plotRF(Z008, col.scheme = "redblue")
+```
+
+```{r}
+lg <- formLinkageGroups(Z008, max.rf=0.35, min.lod=3)
+table(lg[,2])
+```
+
+# marker grouping 
+
+```{r}
+twopts.riself <- function(i, j, data) { 
+  n <- table(data[,c(i, j)]) # counts genotypic classes for two markers i and j
+  n.nr <- sum(n[c(1,4)]) # non-recombinants (n2 e n3)
+  n.r <- sum(n[2:3]) # recombinants (n1 e n4)
+  r.hat <- n.r/(n.nr+n.r) # BC recombination fraction estimator
+  l.r <- (n.nr+n.r)*log(0.5/2) # likelihood function for r=0.5
+  l.r.hat <- (n.nr*log((1-r.hat)/2) + n.r*log(r.hat/2)) # likelihood function for r estimate
+  LRT <- -2*(l.r - l.r.hat) # likelihood ratio test
+  LOD <- LRT*0.2172 # transformation to LOD
+  p.valor <- pchisq(LRT, df=1, lower.tail=FALSE) # P value from a chi-square distribution with 1 degree of freedom
+  return(c(r.hat, LRT, LOD, p.valor))
+}
+```
+
+
+```{r}
+results <- array(NA, dim=c(ncol(maize_Z008), ncol(maize_Z008), 4))
+for(i in 1:ncol(maize_Z008)) {
+  for(j in i:ncol(maize_Z008)) {
+    results[i,j,] <- twopts.riself(i, j, data=maize_Z008)
+  }
+}
+```
+
+
+```{r}
+image(results[,,1], bty="n", col=rainbow(n = 500, start = 0, end = 0.65), main="Maize_Z008 population data: recombination fractions")
+```
+
+
+```{r}
+round(results[,,1], 2)
+```
+
+
+# Rapid Chain Delineation (RCD) method
+
+```{r}
+indices <- t(combn(1106, 2))
+maize_Z008.rf <- cbind(indices, rf=results[,,1][indices])
+head(maize_Z008.rf)
+```
+
+
+```{r}
+maize_Z008.rf[order(maize_Z008.rf[,"rf"]),]
+```
+
+#Marker ordering with R/qtl
+
+```{r}
+library(qtl)
+Z008qtl <- read.cross(format="csv", file="population_Z008.csv", genotypes=c("0", "1"), crosstype = "riself")
+
+```
+
+
+```{r}
+Z008qtl <- est.rf(Z008qtl)
+```
+
+
+```{r}
+Z008qtl<- formLinkageGroups(Z008qtl, max.rf = 0.35, min.lod = 3, reorgMarkers=TRUE)
+```
+
+
+```{r}
+Z008qtl <- orderMarkers(Z008qtl, chr=1, use.ripple = FALSE, map.function = "kosambi")
+plotRF(Z008qtl, col.scheme = "redblue", mark.diagonal = TRUE)
+```
+
+
+```{r}
+Z008qtl <- orderMarkers(Z008qtl, chr = 1, use.ripple = TRUE, map.function = "kosambi")
+plotRF(Z008qtl, col.scheme = "redblue", mark.diagonal = TRUE)
+```
+
+
+```{r}
+ripl1 <- ripple (Z008qtl, chr = 0 , window=4, method= "likelihood", error.prob=0.0001, map.function="kosambi", maxit=4000, tol=1e-6, sex.sp=TRUE, verbose=TRUE, n.cluster=1)
+```
+
+
+```{r}
+pull.map(Z008qtl, chr=1, as.table = TRUE)
+```
+
+
+```{r}
+attr(Z008qtl$geno$`1`$map, "loglik")
+```
+
+
+```{r}
+Z008qtl <- flip.order(Z008qtl, chr = 1)
+pull.map(Z008qtl, chr = 1, as.table = TRUE)
+```
+
+
+```{r}
+plotMap(Z008qtl, show.marker.names=TRUE) 
+```
+
+
+```{r}
+calc.errorlod(Z008qtl, error.prob=0.01, map.function=c("haldane","kosambi","c-f","morgan"), version=c("new","old"))
+```
+
+
+```{r}
+plotGeno(Z008qtl, chr = 1, ind = 1:10)
+```
+
+
+
+
+
+
